@@ -1,18 +1,18 @@
 <template>
-  <v-app>
+  <div id="app-wrapper">
     <!--/ Main Container /-->
-    <v-main>
+    <div class="main-wrapper">
       <!--/ Base App Bar /-->
-      <BaseAppBar
-        id=""
+      <NavigationBar
+        id="navigation-bar"
         v-if="$store.state.layout.header"
         :class="layoutClasses.header"
         ><slot name="navbar"></slot>
-      </BaseAppBar>
+      </NavigationBar>
       <!--/ END Base App Bar /-->
-      <v-container fluid :class="classContainer.main">
+      <div class="container-fluid" :class="classContainer.main">
         <router-view />
-      </v-container>
+      </div>
 
       <!--/ Base Footer /-->
       <BaseFooter
@@ -21,16 +21,16 @@
         ><slot name="footer"></slot>
       </BaseFooter>
       <!--/ END Base Footer /-->
-    </v-main>
+    </div>
     <!--/ END Main Container /-->
     <!--/ Base Navigation Drawer /-->
-    <BaseNavigationDrawer
+    <NavigationDrawer
       v-if="$store.state.layout.sidebar"
       :class="layoutClasses.sidebar"
       ><slot name="sidebar"></slot>
-    </BaseNavigationDrawer>
+    </NavigationDrawer>
     <!--/ END Base Navigation Drawer /-->
-  </v-app>
+  </div>
 </template>
 
 <script>
